@@ -16,7 +16,14 @@ namespace Scrabble.Objects
 
     public int GetScore()
     {
-      return 0;
+      foreach (var pair in _scoreTable)
+      {
+        if(pair.Key.Contains(_userInput))
+        {
+          _score += pair.Value;
+        }
+      }
+      return _score;
     }
   }
 }
