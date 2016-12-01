@@ -11,16 +11,20 @@ namespace Scrabble.Objects
 
     public ScrabbleScorer(string userInput)
     {
-      _userInput = userInput;
+      _userInput = userInput.ToLower();
     }
 
     public int GetScore()
     {
       foreach (var pair in _scoreTable)
       {
-        if(pair.Key.Contains(_userInput))
+        // char[] letters = _userInput.Split(" ");
+        foreach (char letter in _userInput)
         {
-          _score += pair.Value;
+          if(pair.Key.Contains(letter.ToString()))
+          {
+            _score += pair.Value;
+          }
         }
       }
       return _score;
