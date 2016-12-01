@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scrabble</title>
+  </head>
+  <body>
+    <h1>Welcome to Scrabble</h1>
+    <h2>Please enter a word in order to get your scrabble points:</h2>
+    <form action="/score" method="post">
+      <div class="formgroup">
+        <label for="user-word">Your word:</label>
+        <input name="user-word" type="text"></input>
+      </div>
+      <button type="submit">Get Score</button>
+    </form>
+    @if(Model != null)
+    {
+      <h2>Your score is: @Model</h2>
+    }
+  </body>
+</html>
